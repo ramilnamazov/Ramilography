@@ -38,81 +38,6 @@
   to   { transform: translate3d(-1.5%, 1%, 0) scale(1.02); }
 }
 
-/* ── Navbar ───────────────────────────────────────────── */
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  background: linear-gradient(180deg, rgba(7,13,11,0.96) 0%, rgba(7,13,11,0.8) 100%);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--stroke);
-}
-
-.navInner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0.9rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.brand {
-  text-decoration: none;
-  color: var(--text);
-  font-family: "Bodoni Moda", "Times New Roman", serif;
-  font-size: 0.82rem;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-}
-
-.navRight {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.navCount {
-  color: var(--muted);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.navContact {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.73rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-family: "Manrope", "Segoe UI", sans-serif;
-  transition: color 0.2s ease;
-}
-
-.navContact:hover { color: var(--text); }
-
-.navBook {
-  display: inline-block;
-  background: var(--gold-dim);
-  border: 1px solid rgba(168, 135, 83, 0.55);
-  color: var(--text);
-  border-radius: 999px;
-  padding: 0.5rem 1.1rem;
-  font-size: 0.73rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  cursor: pointer;
-  font-family: "Manrope", "Segoe UI", sans-serif;
-  text-decoration: none;
-  transition: background 0.25s var(--ease), border-color 0.25s var(--ease);
-}
-
-.navBook:hover {
-  background: rgba(168, 135, 83, 0.35);
-  border-color: rgba(168, 135, 83, 0.8);
-}
-
 /* ── Page header ──────────────────────────────────────── */
 .pageHeader {
   position: relative;
@@ -319,34 +244,6 @@
   padding: 4rem 0;
 }
 
-/* ── Footer ───────────────────────────────────────────── */
-.footer {
-  position: relative;
-  z-index: 1;
-  max-width: 1280px;
-  margin: 0 auto 3rem;
-  padding: 2rem 1.5rem 0;
-  border-top: 1px solid var(--stroke);
-  text-align: center;
-}
-
-.footer p {
-  margin: 0;
-  font-family: "Bodoni Moda", "Times New Roman", serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.footer span {
-  display: inline-block;
-  margin-top: 0.4rem;
-  color: var(--muted);
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
 /* ── Lightbox ─────────────────────────────────────────── */
 .lbBackdrop {
   position: fixed;
@@ -534,8 +431,6 @@
     width: 46px;
     height: 46px;
   }
-
-  .navCount { display: none; }
 }
 
 /* ── Reduced motion ───────────────────────────────────── */
@@ -549,8 +444,7 @@
   .filterBtn,
   .lbThumb,
   .lbArrow,
-  .lbClose,
-  .navBook {
+  .lbClose {
     transition: none !important;
   }
 }
