@@ -17,7 +17,7 @@ out/
 mockups.html
 plan.md
 skills-lock.json
-crm-script.gs
+# crm-script.gs
 
 # OS
 .DS_Store
