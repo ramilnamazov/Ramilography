@@ -122,11 +122,15 @@ export default function Portfolio({ categories, photos }) {
     <>
       <Head>
         <title>Portfolio — Ramilography</title>
-        <meta
-          name="description"
-          content="Full portfolio of Ramilography — luxury cinematic portraits across couples, events, family, sports and more."
-        />
+        <meta name="description" content="Full portfolio of Ramilography — luxury cinematic portraits across couples, events, family, sports and more." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="Portfolio — Ramilography" />
+        <meta property="og:description" content="Full portfolio of Ramilography — luxury cinematic portraits across couples, events, family, sports and more." />
+        <meta property="og:image" content="/api/og" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ramilography.com/portfolio" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="/api/og" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

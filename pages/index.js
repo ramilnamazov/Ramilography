@@ -76,11 +76,15 @@ export default function Home({ heroImages }) {
     <>
       <Head>
         <title>Ramilography | Luxury Cinematic Photography</title>
-        <meta
-          name="description"
-          content="Luxury cinematic portraiture — intentional lighting, quiet drama, timeless framing."
-        />
+        <meta name="description" content="Luxury cinematic portraiture — intentional lighting, quiet drama, timeless framing." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="Ramilography | Luxury Cinematic Photography" />
+        <meta property="og:description" content="Luxury cinematic portraiture — intentional lighting, quiet drama, timeless framing." />
+        <meta property="og:image" content="/api/og" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ramilography.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="/api/og" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

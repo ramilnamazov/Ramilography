@@ -39,6 +39,13 @@ export default function Contact() {
         <title>Contact — Ramilography</title>
         <meta name="description" content="Get in touch with Ramilography for luxury cinematic photography sessions." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="Contact — Ramilography" />
+        <meta property="og:description" content="Get in touch with Ramilography for luxury cinematic photography sessions." />
+        <meta property="og:image" content="/api/og" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ramilography.com/contact" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="/api/og" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

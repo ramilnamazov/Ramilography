@@ -55,6 +55,13 @@ export default function Book() {
         <title>Book a Session — Ramilography</title>
         <meta name="description" content="Book a luxury cinematic photography session with Ramilography." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="Book a Session — Ramilography" />
+        <meta property="og:description" content="Book a luxury cinematic photography session with Ramilography." />
+        <meta property="og:image" content="/api/og" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ramilography.com/book" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="/api/og" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
