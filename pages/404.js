@@ -10,12 +10,6 @@ export default function NotFound() {
       <Head>
         <title>Frame Not Found — Ramilography</title>
         <meta name="robots" content="noindex" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Manrope:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
       </Head>
 
       <div className={styles.page}>

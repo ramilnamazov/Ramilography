@@ -1,0 +1,87 @@
+.footer {
+  position: relative;
+  z-index: 1;
+  background: #050906;
+  border-top: 1px solid rgba(168, 135, 83, 0.2);
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ── Top row: brand + nav ───────────────────────────────── */
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.brand {
+  font-family: "Bodoni Moda", "Times New Roman", serif;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #f5f3ef;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.navLink {
+  color: #c7c0af;
+  text-decoration: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover { color: #f5f3ef; }
+
+/* ── Bottom row: copyright + instagram ─────────────────── */
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(245, 243, 239, 0.07);
+}
+
+.copy {
+  margin: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: rgba(199, 192, 175, 0.5);
+  text-transform: uppercase;
+}
+
+.instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: rgba(199, 192, 175, 0.5);
+  text-decoration: none;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.instagram:hover { color: #a88753; }
+
+/* ── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 540px) {
+  .top { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .bottom { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .nav { gap: 1.25rem; }
+}

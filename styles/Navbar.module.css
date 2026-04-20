@@ -61,6 +61,22 @@
 
 .navLink:hover { color: #f5f3ef; }
 
+.navLinkActive {
+  color: #f5f3ef;
+  position: relative;
+}
+
+.navLinkActive::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(168, 135, 83, 0.7);
+  border-radius: 1px;
+}
+
 .navBook {
   display: inline-block;
   text-decoration: none;
@@ -80,6 +96,11 @@
 .navBook:hover {
   background: rgba(168, 135, 83, 0.32);
   border-color: rgba(168, 135, 83, 0.8);
+}
+
+.navBookActive {
+  background: rgba(168, 135, 83, 0.3);
+  border-color: rgba(168, 135, 83, 0.85);
 }
 
 /* ── Hamburger button (mobile only) ──────────────────── */
@@ -142,6 +163,8 @@
 .drawerLink:hover,
 .drawerLink:active { color: #f5f3ef; }
 
+.drawerLinkActive { color: #f5f3ef; }
+
 .drawerBook {
   display: block;
   text-align: center;
@@ -163,6 +186,11 @@
 .drawerBook:active {
   background: rgba(168, 135, 83, 0.32);
   border-color: rgba(168, 135, 83, 0.8);
+}
+
+.drawerBookActive {
+  background: rgba(168, 135, 83, 0.3);
+  border-color: rgba(168, 135, 83, 0.85);
 }
 
 /* ── Mobile breakpoint ────────────────────────────────── */

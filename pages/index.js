@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { useState, useEffect } from "react";
 import Head from "next/head";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "../styles/CinematicMockup.module.css";
 import Navbar from "../components/Navbar";
@@ -87,12 +88,6 @@ export default function Home({ heroImages }) {
         <meta name="twitter:image" content="/api/og" />
         <link rel="canonical" href="https://ramilography.com" />
         {heroImage && <link rel="preload" as="image" href={heroImage} fetchPriority="high" />}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Manrope:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -135,6 +130,10 @@ export default function Home({ heroImages }) {
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className={styles.heroQuote}>&ldquo;{quote}&rdquo;</p>
+            <div className={styles.heroActions}>
+              <Link href="/portfolio" className={styles.btnPrimary}>View Portfolio</Link>
+              <Link href="/book" className={styles.btnGhost}>Book a Session</Link>
+            </div>
           </motion.div>
         </section>
 
