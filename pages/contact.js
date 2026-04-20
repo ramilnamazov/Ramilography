@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "../styles/InnerPage.module.css";
+import Navbar from "../components/Navbar";
 
 const CONTACTS = [
   {
@@ -47,16 +48,7 @@ export default function Contact() {
       </Head>
 
       <div className={styles.page}>
-        <header className={styles.navbar}>
-          <div className={styles.navInner}>
-            <Link href="/" className={styles.brand}>Ramilography</Link>
-            <nav className={styles.navLinks}>
-              <Link href="/portfolio" className={styles.navLink}>Portfolio</Link>
-              <Link href="/contact" className={styles.navLink}>Contact</Link>
-              <Link href="/book" className={styles.navBook}>Book a Session</Link>
-            </nav>
-          </div>
-        </header>
+        <Navbar />
 
         <motion.div
           className={styles.hero}

@@ -2,10 +2,16 @@ import Head from "next/head";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "../styles/InnerPage.module.css";
+import Navbar from "../components/Navbar";
 
 const CAL_BASE = "https://cal.com/ramilography";
 
 const SESSIONS = [
+  {
+    name: "Consultation",
+    desc: "Not sure where to start? Book a free 15-minute call to discuss your vision, session type, and any questions.",
+    href: `${CAL_BASE}/consultation`,
+  },
   {
     name: "Portraits",
     desc: "Individual sessions focused on character, mood, and light. Studio or location.",
@@ -19,7 +25,7 @@ const SESSIONS = [
   {
     name: "Family",
     desc: "Candid and composed — real moments with the people who matter most.",
-    href: `${CAL_BASE}/family`,
+    href: `${CAL_BASE}/family-session`,
   },
   {
     name: "Events",
@@ -58,16 +64,7 @@ export default function Book() {
       </Head>
 
       <div className={styles.page}>
-        <header className={styles.navbar}>
-          <div className={styles.navInner}>
-            <Link href="/" className={styles.brand}>Ramilography</Link>
-            <nav className={styles.navLinks}>
-              <Link href="/portfolio" className={styles.navLink}>Portfolio</Link>
-              <Link href="/contact" className={styles.navLink}>Contact</Link>
-              <Link href="/book" className={styles.navBook}>Book a Session</Link>
-            </nav>
-          </div>
-        </header>
+        <Navbar />
 
         <motion.div
           className={styles.hero}

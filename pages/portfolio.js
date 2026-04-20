@@ -2,8 +2,8 @@ import fs from "fs";
 import path from "path";
 import { useState, useEffect, useCallback, useRef } from "react";
 import Head from "next/head";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import Navbar from "../components/Navbar";
 import styles from "../styles/Portfolio.module.css";
 
 const IMAGE_PATTERN = /\.(jpg|jpeg|png|webp)$/i;
@@ -136,16 +136,7 @@ export default function Portfolio({ categories, photos }) {
       </Head>
 
       <div className={styles.page}>
-        {/* Navbar */}
-        <header className={styles.navbar}>
-          <div className={styles.navInner}>
-            <Link href="/" className={styles.brand}>Ramilography</Link>
-            <div className={styles.navRight}>
-              <Link href="/contact" className={styles.navContact}>Contact</Link>
-              <Link href="/book" className={styles.navBook}>Book a Session</Link>
-            </div>
-          </div>
-        </header>
+        <Navbar />
 
         {/* Page title */}
         <motion.div

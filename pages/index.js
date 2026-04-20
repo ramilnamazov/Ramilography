@@ -2,9 +2,9 @@ import fs from "fs";
 import path from "path";
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "../styles/CinematicMockup.module.css";
+import Navbar from "../components/Navbar";
 
 const IMAGE_PATTERN = /\.(jpg|jpeg|png|webp)$/i;
 
@@ -90,16 +90,7 @@ export default function Home({ heroImages }) {
       </Head>
 
       <div className={styles.page}>
-        <header className={styles.navbar}>
-          <div className={styles.navInner}>
-            <a href="/" className={styles.brand}>Ramilography</a>
-            <nav className={styles.navLinks}>
-              <Link href="/portfolio" className={styles.navLink}>Portfolio</Link>
-              <Link href="/contact" className={styles.navLink}>Contact</Link>
-              <Link href="/book" className={styles.navBook}>Book a Session</Link>
-            </nav>
-          </div>
-        </header>
+        <Navbar variant="transparent" />
 
         <section className={styles.hero}>
           {heroImage && (

@@ -1,0 +1,179 @@
+/* ── Shared Navbar ─────────────────────────────────────── */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  width: 100%;
+}
+
+.solid {
+  background: linear-gradient(180deg, rgba(7,13,11,0.96) 0%, rgba(7,13,11,0.82) 100%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(245, 243, 239, 0.1);
+}
+
+.transparent {
+  position: fixed;
+  background: linear-gradient(
+    180deg,
+    rgba(7,13,11,0.88) 0%,
+    rgba(7,13,11,0.52) 60%,
+    rgba(7,13,11,0) 100%
+  );
+}
+
+.navInner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  text-decoration: none;
+  color: #f5f3ef;
+  font-family: "Bodoni Moda", "Times New Roman", serif;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  flex-shrink: 0;
+}
+
+/* ── Desktop nav ──────────────────────────────────────── */
+.desktopLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navLink {
+  color: #c7c0af;
+  text-decoration: none;
+  font-size: 0.73rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover { color: #f5f3ef; }
+
+.navBook {
+  display: inline-block;
+  text-decoration: none;
+  background: rgba(168, 135, 83, 0.18);
+  border: 1px solid rgba(168, 135, 83, 0.55);
+  color: #f5f3ef;
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.73rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  white-space: nowrap;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.navBook:hover {
+  background: rgba(168, 135, 83, 0.32);
+  border-color: rgba(168, 135, 83, 0.8);
+}
+
+/* ── Hamburger button (mobile only) ──────────────────── */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 31;
+  flex-shrink: 0;
+}
+
+.line {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: #f5f3ef;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+.lineTop { transform: rotate(45deg) translate(4.5px, 4.5px); }
+.lineMid { opacity: 0; transform: scaleX(0); }
+.lineBot { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+
+/* ── Mobile drawer ────────────────────────────────────── */
+.drawer {
+  display: none;
+  flex-direction: column;
+  background: rgba(5, 9, 6, 0.98);
+  border-top: 1px solid rgba(245, 243, 239, 0.08);
+  padding: 0 1.5rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.drawerOpen {
+  max-height: 320px;
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.drawerLink {
+  display: block;
+  color: #c7c0af;
+  text-decoration: none;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(245, 243, 239, 0.08);
+  transition: color 0.2s ease;
+}
+
+.drawerLink:hover,
+.drawerLink:active { color: #f5f3ef; }
+
+.drawerBook {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: rgba(168, 135, 83, 0.18);
+  border: 1px solid rgba(168, 135, 83, 0.55);
+  color: #f5f3ef;
+  border-radius: 999px;
+  padding: 0.85rem 1.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  margin-top: 1.1rem;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.drawerBook:hover,
+.drawerBook:active {
+  background: rgba(168, 135, 83, 0.32);
+  border-color: rgba(168, 135, 83, 0.8);
+}
+
+/* ── Mobile breakpoint ────────────────────────────────── */
+@media (max-width: 640px) {
+  .desktopLinks { display: none; }
+  .burger       { display: flex; }
+  .drawer       { display: flex; }
+
+  .navInner { padding: 0.85rem 1.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line, .drawer, .drawerOpen { transition: none !important; }
+}
