@@ -133,6 +133,7 @@
 
 .hero {
   min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -806,25 +807,17 @@
 }
 
 @media (max-width: 640px) {
-  .navLinks a {
-    display: none;
-  }
-
   .heroContent {
-    padding-top: calc(var(--space-6) + 2rem);
+    padding: 0 1.2rem 5rem;
   }
 
-  .heroTitle {
-    max-width: 10ch;
+  .heroQuote {
+    font-size: clamp(1.1rem, 5vw, 1.6rem);
+    max-width: 28ch;
   }
 
   .section {
     padding-top: 4.2rem;
-  }
-
-  .portfolioViewport::before,
-  .portfolioViewport::after {
-    width: 2.25rem;
   }
 
   .storyPanel,

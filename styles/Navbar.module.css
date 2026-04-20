@@ -172,6 +172,11 @@
   .drawer       { display: flex; }
 
   .navInner { padding: 0.85rem 1.2rem; }
+
+  /* Always show a solid backdrop on mobile so hamburger is visible over hero images */
+  .transparent {
+    background: linear-gradient(180deg, rgba(7,13,11,0.92) 0%, rgba(7,13,11,0.72) 100%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
