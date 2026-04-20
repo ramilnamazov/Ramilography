@@ -62,6 +62,31 @@ export default function Book() {
         <meta property="og:url" content="https://ramilography.com/book" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/api/og" />
+        <link rel="canonical" href="https://ramilography.com/book" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Book a Photography Session — Ramilography",
+            "description": "Book a luxury cinematic photography session with Ramilography. Available session types: Portraits, Couples, Family, Events, Sports.",
+            "url": "https://ramilography.com/book",
+            "provider": { "@type": "Person", "name": "Ramil Namazov" },
+            "serviceType": "Photography",
+            "areaServed": "New Jersey, USA",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Photography Sessions",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Portrait Session" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Couples Session" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Family Session" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Events Coverage" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sports Photography" } },
+              ],
+            },
+          })}}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

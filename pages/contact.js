@@ -46,6 +46,24 @@ export default function Contact() {
         <meta property="og:url" content="https://ramilography.com/contact" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/api/og" />
+        <link rel="canonical" href="https://ramilography.com/contact" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact — Ramilography",
+            "description": "Get in touch with Ramilography for luxury cinematic photography sessions.",
+            "url": "https://ramilography.com/contact",
+            "mainEntity": {
+              "@type": "Person",
+              "name": "Ramil Namazov",
+              "email": "ramilography@gmail.com",
+              "telephone": "+18624144948",
+              "sameAs": ["https://instagram.com/ramilography"],
+            },
+          })}}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

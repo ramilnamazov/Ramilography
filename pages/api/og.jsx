@@ -1,13 +1,7 @@
 import { ImageResponse } from "@vercel/og";
-import fs from "fs";
-import path from "path";
 
 export const config = { runtime: "edge" };
 
-const IMAGE_PATTERN = /\.(jpg|jpeg|png|webp)$/i;
-
-// Pre-build the hero image list at module load time (works in edge)
-// We fetch the manifest generated at build time
 export default async function handler(req) {
   try {
     const { origin } = new URL(req.url);

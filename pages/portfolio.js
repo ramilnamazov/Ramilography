@@ -131,6 +131,19 @@ export default function Portfolio({ categories, photos }) {
         <meta property="og:url" content="https://ramilography.com/portfolio" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/api/og" />
+        <link rel="canonical" href="https://ramilography.com/portfolio" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Portfolio — Ramilography",
+            "description": "Full portfolio of Ramilography — luxury cinematic portraits across couples, events, family, sports and more.",
+            "url": "https://ramilography.com/portfolio",
+            "author": { "@type": "Person", "name": "Ramil Namazov" },
+            "image": "https://ramilography.com/api/og",
+          })}}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

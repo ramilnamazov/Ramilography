@@ -85,11 +85,31 @@ export default function Home({ heroImages }) {
         <meta property="og:url" content="https://ramilography.com" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/api/og" />
+        <link rel="canonical" href="https://ramilography.com" />
+        {heroImage && <link rel="preload" as="image" href={heroImage} fetchPriority="high" />}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Manrope:wght@400;500;600&display=swap"
           rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Ramilography",
+            "description": "Luxury cinematic photography — portraits, couples, family, events, and sports.",
+            "url": "https://ramilography.com",
+            "telephone": "+18624144948",
+            "email": "ramilography@gmail.com",
+            "image": "https://ramilography.com/api/og",
+            "sameAs": ["https://instagram.com/ramilography", "https://cal.com/ramilography"],
+            "serviceType": ["Portrait Photography", "Couples Photography", "Family Photography", "Event Photography", "Sports Photography"],
+            "areaServed": "New Jersey, USA",
+            "priceRange": "$$",
+            "founder": { "@type": "Person", "name": "Ramil Namazov" },
+          })}}
         />
       </Head>
 

@@ -1,0 +1,47 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: calc(100dvh - 72px);
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.code {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: clamp(6rem, 20vw, 12rem);
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(168, 135, 83, 0.4);
+  letter-spacing: -0.04em;
+  user-select: none;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 600;
+  color: #f0ece4;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.sub {
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 1rem;
+  color: rgba(240, 236, 228, 0.55);
+  max-width: 36ch;
+  line-height: 1.6;
+  margin: 0 0 2.5rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.875rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
