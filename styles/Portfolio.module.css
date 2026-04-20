@@ -1,0 +1,556 @@
+/* ── Design tokens (shared with homepage palette) ─────── */
+.page {
+  --bg: #070d0b;
+  --bg2: #1c2a27;
+  --gold: #a88753;
+  --gold-dim: rgba(168, 135, 83, 0.22);
+  --text: #f5f3ef;
+  --muted: #c7c0af;
+  --stroke: rgba(245, 243, 239, 0.1);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(28, 42, 39, 0.4), transparent 34%),
+    radial-gradient(circle at 88% 88%, rgba(60, 27, 38, 0.18), transparent 38%),
+    linear-gradient(165deg, #050906 0%, #0a120f 54%, #060907 100%);
+  color: var(--text);
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  position: relative;
+}
+
+/* ambient glow */
+.page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 80% 10%, rgba(168, 135, 83, 0.14), transparent 30%),
+    radial-gradient(circle at 12% 80%, rgba(28, 42, 39, 0.24), transparent 38%);
+  filter: blur(10px);
+  z-index: 0;
+  animation: ambientDrift 28s linear infinite alternate;
+}
+
+@keyframes ambientDrift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to   { transform: translate3d(-1.5%, 1%, 0) scale(1.02); }
+}
+
+/* ── Navbar ───────────────────────────────────────────── */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: linear-gradient(180deg, rgba(7,13,11,0.96) 0%, rgba(7,13,11,0.8) 100%);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--stroke);
+}
+
+.navInner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  text-decoration: none;
+  color: var(--text);
+  font-family: "Bodoni Moda", "Times New Roman", serif;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.navCount {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.navContact {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.73rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  transition: color 0.2s ease;
+}
+
+.navContact:hover { color: var(--text); }
+
+.navBook {
+  display: inline-block;
+  background: var(--gold-dim);
+  border: 1px solid rgba(168, 135, 83, 0.55);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.73rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  text-decoration: none;
+  transition: background 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+
+.navBook:hover {
+  background: rgba(168, 135, 83, 0.35);
+  border-color: rgba(168, 135, 83, 0.8);
+}
+
+/* ── Page header ──────────────────────────────────────── */
+.pageHeader {
+  position: relative;
+  z-index: 1;
+  padding: 3rem 1.5rem 1.5rem;
+  text-align: center;
+}
+
+.pageTitle {
+  margin: 0;
+  font-family: "Bodoni Moda", "Times New Roman", serif;
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-weight: 500;
+  line-height: 0.88;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: linear-gradient(160deg, var(--text) 30%, rgba(168, 135, 83, 0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Filter bar ───────────────────────────────────────── */
+.filterBar {
+  position: sticky;
+  top: 57px; /* navbar height */
+  z-index: 20;
+  background: rgba(7, 13, 11, 0.88);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--stroke);
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.filterBar::-webkit-scrollbar {
+  display: none;
+}
+
+.filterBtn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid var(--stroke);
+  background: transparent;
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 0.38rem 0.9rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.filterBtn:hover {
+  border-color: rgba(168, 135, 83, 0.5);
+  color: var(--text);
+}
+
+.filterBtnActive {
+  border-color: rgba(168, 135, 83, 0.75);
+  background: rgba(168, 135, 83, 0.14);
+  color: var(--text);
+}
+
+.filterCount {
+  font-size: 0.62rem;
+  color: var(--muted);
+  background: rgba(245, 243, 239, 0.07);
+  border-radius: 999px;
+  padding: 0.1rem 0.45rem;
+}
+
+.filterBtnActive .filterCount {
+  background: rgba(168, 135, 83, 0.2);
+  color: var(--gold);
+}
+
+/* ── Bento grid (horizontal scroll) ──────────────────── */
+.main {
+  position: relative;
+  z-index: 1;
+  padding: 0.6rem 0 2rem;
+}
+
+.bento {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: column dense;
+  grid-auto-columns: clamp(200px, 24vw, 340px);
+  gap: 0.6rem;
+  height: calc(100vh - 14rem);
+  min-height: 420px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 0.6rem 0.75rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(168, 135, 83, 0.4) rgba(245, 243, 239, 0.05);
+  -webkit-overflow-scrolling: touch;
+}
+
+.bento::-webkit-scrollbar { height: 4px; }
+.bento::-webkit-scrollbar-track {
+  background: rgba(245, 243, 239, 0.05);
+  border-radius: 999px;
+  margin: 0 0.6rem;
+}
+.bento::-webkit-scrollbar-thumb {
+  background: rgba(168, 135, 83, 0.45);
+  border-radius: 999px;
+}
+
+/* ── Bento size variants ──────────────────────────────── */
+.bentoLarge { grid-column: span 2; grid-row: span 2; }
+.bentoTall  { grid-column: span 1; grid-row: span 3; }
+.bentoWide  { grid-column: span 2; grid-row: span 1; }
+.bentoSmall { grid-column: span 1; grid-row: span 1; }
+
+/* ── Bento item ───────────────────────────────────────── */
+.bentoItem {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid rgba(245, 243, 239, 0.06);
+  background: #0c1410;
+  outline: none;
+}
+
+.bentoItem:focus-visible {
+  box-shadow: 0 0 0 2px rgba(168, 135, 83, 0.7);
+}
+
+.bentoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.55s var(--ease), filter 0.45s ease;
+  will-change: transform;
+}
+
+.bentoItem:hover .bentoImg {
+  transform: scale(1.04);
+  filter: brightness(0.78);
+}
+
+/* hover overlay */
+.itemOverlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 13px;
+  background: linear-gradient(
+    0deg,
+    rgba(5, 9, 6, 0.78) 0%,
+    rgba(5, 9, 6, 0.2) 45%,
+    transparent 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 1.1rem 1.15rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.masonryItem:hover .itemOverlay,
+.masonryItem:focus-visible .itemOverlay {
+  opacity: 1;
+}
+
+.itemLabel {
+  color: var(--text);
+  font-family: "Bodoni Moda", "Times New Roman", serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.itemView {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4rem 0;
+}
+
+/* ── Footer ───────────────────────────────────────────── */
+.footer {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto 3rem;
+  padding: 2rem 1.5rem 0;
+  border-top: 1px solid var(--stroke);
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-family: "Bodoni Moda", "Times New Roman", serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.footer span {
+  display: inline-block;
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* ── Lightbox ─────────────────────────────────────────── */
+.lbBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(4, 7, 5, 0.95);
+  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  touch-action: pan-y;
+}
+
+.lbPanel {
+  width: 100%;
+  max-width: 1020px;
+  max-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(160deg, rgba(28, 42, 39, 0.45), rgba(7, 13, 11, 0.88));
+  border: 1px solid rgba(168, 135, 83, 0.22);
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+/* top bar */
+.lbTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.2rem;
+  border-bottom: 1px solid var(--stroke);
+  flex-shrink: 0;
+}
+
+.lbMeta {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.lbCategory {
+  font-family: "Bodoni Moda", "Times New Roman", serif;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: var(--text);
+}
+
+.lbCounter {
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lbClose {
+  background: transparent;
+  border: 1px solid var(--stroke);
+  color: var(--muted);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.lbClose:hover {
+  border-color: rgba(245, 243, 239, 0.45);
+  color: var(--text);
+}
+
+/* image area */
+.lbImageWrap {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 3.75rem;
+  overflow: hidden;
+}
+
+.lbImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.lbArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(7, 13, 11, 0.65);
+  border: 1px solid var(--stroke);
+  color: var(--text);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.lbArrow:hover {
+  background: rgba(168, 135, 83, 0.18);
+  border-color: rgba(168, 135, 83, 0.6);
+}
+
+.lbArrowLeft  { left: 0.75rem; }
+.lbArrowRight { right: 0.75rem; }
+
+/* thumbnail strip */
+.lbThumbs {
+  display: flex;
+  gap: 0.45rem;
+  padding: 0.7rem 1.2rem;
+  overflow-x: auto;
+  border-top: 1px solid var(--stroke);
+  flex-shrink: 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(168, 135, 83, 0.35) transparent;
+}
+
+.lbThumbs::-webkit-scrollbar { height: 3px; }
+.lbThumbs::-webkit-scrollbar-thumb {
+  background: rgba(168, 135, 83, 0.4);
+  border-radius: 999px;
+}
+
+.lbThumb {
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 8px;
+  border: 1.5px solid transparent;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  opacity: 0.44;
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.lbThumb:hover { opacity: 0.75; }
+
+.lbThumbActive {
+  opacity: 1;
+  border-color: var(--gold);
+}
+
+/* ── Mobile ───────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .pageHeader { padding: 2.5rem 1rem 1.5rem; }
+  .filterBar  { padding: 0.6rem 1rem; }
+  .main       { padding: 0.4rem 0 2rem; }
+  .bento {
+    grid-template-rows: none;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row dense;
+    grid-auto-columns: unset;
+    grid-auto-rows: clamp(130px, 42vw, 200px);
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding: 0 0.4rem 1rem;
+  }
+  .bentoLarge, .bentoTall, .bentoWide { grid-column: span 1; grid-row: span 1; }
+
+  .lbImageWrap {
+    padding: 0.75rem 3.25rem;
+  }
+
+  .lbThumb {
+    width: 46px;
+    height: 46px;
+  }
+
+  .navCount { display: none; }
+}
+
+/* ── Reduced motion ───────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .page::before {
+    animation: none !important;
+  }
+
+  .bentoImg,
+  .itemOverlay,
+  .filterBtn,
+  .lbThumb,
+  .lbArrow,
+  .lbClose,
+  .navBook {
+    transition: none !important;
+  }
+}
