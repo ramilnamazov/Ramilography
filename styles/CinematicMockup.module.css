@@ -55,82 +55,6 @@
   z-index: 0;
 }
 
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 20;
-  padding: var(--space-3) 1.2rem;
-  background: linear-gradient(
-    180deg,
-    rgba(7, 13, 11, 0.88) 0%,
-    rgba(7, 13, 11, 0.56) 62%,
-    rgba(7, 13, 11, 0) 100%
-  );
-}
-
-.navInner {
-  max-width: var(--section-width);
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.brand {
-  text-decoration: none;
-  color: var(--text-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.8rem;
-  font-family: "Bodoni Moda", "Times New Roman", serif;
-}
-
-.navLinks {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-.navLinks a,
-.navLink {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  transition: color var(--motion-hover) var(--motion-ease);
-}
-
-.navLinks a:hover,
-.navLink:hover {
-  color: var(--text-primary);
-}
-
-.navBook {
-  display: inline-block;
-  text-decoration: none;
-  border: 1px solid var(--stroke-soft);
-  color: var(--text-primary);
-  background: transparent;
-  border-radius: 999px;
-  padding: 0.52rem 0.92rem;
-  font-size: 0.74rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  cursor: pointer;
-  font-family: "Manrope", "Segoe UI", sans-serif;
-  transition:
-    border-color var(--motion-hover) var(--motion-ease),
-    transform var(--motion-hover) var(--motion-ease);
-}
-
-.navBook:hover {
-  border-color: rgba(245, 243, 239, 0.42);
-  transform: translateY(-1px);
-}
-
 .hero {
   min-height: 100vh;
   min-height: 100dvh;
@@ -837,7 +761,6 @@
     animation: none !important;
   }
 
-  .navBook,
   .buttonPrimary,
   .buttonGhost,
   .portfolioImage,

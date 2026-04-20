@@ -108,14 +108,6 @@ export default function Portfolio({ categories, photos }) {
     touchStartX.current = null;
   };
 
-  const handleBook = () => {
-    const subject = encodeURIComponent("Session Inquiry — Ramilography");
-    const body = encodeURIComponent(
-      "Hi Ramil,\n\nI would like to book a session.\n\nSession type:\nPreferred date:\nLocation:\n\nThank you."
-    );
-    window.location.href = `mailto:ramilography@gmail.com?subject=${subject}&body=${body}`;
-  };
-
   const currentPhoto = lightboxIdx !== null ? visible[lightboxIdx] : null;
 
   return (
