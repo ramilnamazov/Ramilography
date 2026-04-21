@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 import { useState, useEffect } from "react";
 import Head from "next/head";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "../styles/CinematicMockup.module.css";
 import Navbar from "../components/Navbar";
@@ -65,14 +64,6 @@ export default function Home({ heroImages }) {
     if (imgPick) setHeroImage(imgPick);
     setQuote(quotePick);
   }, []);
-  const handleBook = () => {
-    const subject = encodeURIComponent("Session Inquiry — Ramilography");
-    const body = encodeURIComponent(
-      "Hi Ramil,\n\nI would like to book a session.\n\nSession type:\nPreferred date:\nLocation:\n\nThank you."
-    );
-    window.location.href = `mailto:ramilography@gmail.com?subject=${subject}&body=${body}`;
-  };
-
   return (
     <>
       <Head>
@@ -130,10 +121,6 @@ export default function Home({ heroImages }) {
             transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <p className={styles.heroQuote}>&ldquo;{quote}&rdquo;</p>
-            <div className={styles.heroActions}>
-              <Link href="/portfolio" className={styles.btnPrimary}>View Portfolio</Link>
-              <Link href="/book" className={styles.btnGhost}>Book a Session</Link>
-            </div>
           </motion.div>
         </section>
 
