@@ -18,6 +18,9 @@ mockups.html
 plan.md
 skills-lock.json
 # crm-script.gs
+prices.md
+stripe-setup.js
+stripe-links.json
 
 # OS
 .DS_Store

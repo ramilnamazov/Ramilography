@@ -14,5 +14,8 @@
     "next": "^16.2.4",
     "react": "latest",
     "react-dom": "latest"
+  },
+  "devDependencies": {
+    "stripe": "^22.0.2"
   }
 }

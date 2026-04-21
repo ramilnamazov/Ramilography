@@ -16,6 +16,7 @@ export default function Navbar({ variant = "solid" }) {
 
         <nav className={styles.desktopLinks}>
           <Link href="/portfolio" className={`${styles.navLink} ${pathname === "/portfolio" ? styles.navLinkActive : ""}`}>Portfolio</Link>
+          <Link href="/pricing" className={`${styles.navLink} ${pathname === "/pricing" ? styles.navLinkActive : ""}`}>Pricing</Link>
           <Link href="/contact" className={`${styles.navLink} ${pathname === "/contact" ? styles.navLinkActive : ""}`}>Contact</Link>
           <Link href="/book" className={`${styles.navBook} ${pathname === "/book" ? styles.navBookActive : ""}`}>Book a Session</Link>
         </nav>
@@ -34,6 +35,7 @@ export default function Navbar({ variant = "solid" }) {
 
       <div className={`${styles.drawer} ${open ? styles.drawerOpen : ""}`} aria-hidden={!open}>
         <Link href="/portfolio" className={`${styles.drawerLink} ${pathname === "/portfolio" ? styles.drawerLinkActive : ""}`} onClick={close}>Portfolio</Link>
+        <Link href="/pricing" className={`${styles.drawerLink} ${pathname === "/pricing" ? styles.drawerLinkActive : ""}`} onClick={close}>Pricing</Link>
         <Link href="/contact" className={`${styles.drawerLink} ${pathname === "/contact" ? styles.drawerLinkActive : ""}`} onClick={close}>Contact</Link>
         <Link href="/book" className={`${styles.drawerBook} ${pathname === "/book" ? styles.drawerBookActive : ""}`} onClick={close}>Book a Session</Link>
       </div>
