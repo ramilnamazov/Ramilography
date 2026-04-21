@@ -250,7 +250,7 @@
 
 .pkgRow {
   display: grid;
-  grid-template-columns: 1.6fr 1.4fr 1.2fr auto;
+  grid-template-columns: 1.4fr 1.2fr 1.1fr auto auto;
   align-items: center;
   padding: 0.85rem 0;
   border-bottom: 1px solid rgba(245, 243, 239, 0.04);
@@ -326,6 +326,17 @@
 .pkgBtn:hover {
   background: rgba(168, 135, 83, 0.12);
   border-color: rgba(168, 135, 83, 0.6);
+}
+
+.pkgBtnPay {
+  color: #0d1510;
+  background: rgba(168, 135, 83, 0.85);
+  border-color: rgba(168, 135, 83, 0.85);
+}
+
+.pkgBtnPay:hover {
+  background: rgba(168, 135, 83, 1);
+  border-color: rgba(168, 135, 83, 1);
 }
 
 .pkgFooter {

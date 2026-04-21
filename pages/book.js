@@ -190,8 +190,9 @@ export default function Book() {
                             <div className={`${styles.pkgRow} ${styles.pkgRowHead}`}>
                               <span>Duration</span>
                               <span>Images</span>
-                              <span>Total · Due Now</span>
-                              <span />
+                              <span>Total</span>
+                              <span>Step 1</span>
+                              <span>Step 2</span>
                             </div>
                             {s.packages.map((pkg) => (
                               <div key={pkg.duration} className={styles.pkgRow}>
@@ -202,27 +203,26 @@ export default function Book() {
                                 <span className={styles.pkgImages}>{pkg.images}</span>
                                 <span className={styles.pkgPrice}>
                                   ${pkg.price}
-                                  <span className={styles.pkgPriceSub}>$50 now · ${pkg.price - 50} at session</span>
+                                  <span className={styles.pkgPriceSub}>$50 deposit · ${pkg.price - 50} at session</span>
                                 </span>
                                 <a
-                                  href={pkg.url}
+                                  href={s.cal}
                                   target="_blank"
                                   rel="noreferrer"
                                   className={styles.pkgBtn}
                                 >
-                                  Reserve — $50
-                                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                                    <path d="M7 17L17 7M7 7h10v10"/>
-                                  </svg>
+                                  Pick a date
+                                </a>
+                                <a
+                                  href={pkg.url}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className={`${styles.pkgBtn} ${styles.pkgBtnPay}`}
+                                >
+                                  Pay $50 deposit
                                 </a>
                               </div>
                             ))}
-                          </div>
-                          <div className={styles.pkgFooter}>
-                            <span>Already paid? </span>
-                            <a href={s.cal} target="_blank" rel="noreferrer" className={styles.pkgCalLink}>
-                              Schedule on cal.com →
-                            </a>
                           </div>
                         </motion.div>
                       )}
