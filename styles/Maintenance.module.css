@@ -1,0 +1,142 @@
+.page {
+  min-height: 100dvh;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(28, 42, 39, 0.4), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(60, 27, 38, 0.2), transparent 40%),
+    linear-gradient(165deg, #050906 0%, #0a120f 54%, #060907 100%);
+  color: #f5f3ef;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 1.5rem;
+}
+
+/* Film grain */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+  opacity: 0.4;
+}
+
+/* ── Content ────────────────────────────────────────────── */
+.wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 480px;
+  width: 100%;
+}
+
+/* ── Aperture icon ──────────────────────────────────────── */
+.aperture {
+  margin-bottom: 2.5rem;
+  animation: rotateSlow 18s linear infinite;
+}
+
+.aperturesvg {
+  width: 80px;
+  height: 80px;
+  display: block;
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Text ───────────────────────────────────────────────── */
+.eyebrow {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(168, 135, 83, 0.8);
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin: 0 0 1.25rem;
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  background: linear-gradient(160deg, #f5f3ef 30%, rgba(168, 135, 83, 0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sub {
+  margin: 0;
+  font-size: 0.88rem;
+  color: rgba(199, 192, 175, 0.65);
+  line-height: 1.75;
+  max-width: 40ch;
+  letter-spacing: 0.015em;
+}
+
+/* ── Divider ────────────────────────────────────────────── */
+.divider {
+  width: 2rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(168, 135, 83, 0.5), transparent);
+  margin: 2.5rem 0;
+}
+
+/* ── Contact ────────────────────────────────────────────── */
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.contactLabel {
+  margin: 0 0 0.25rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(199, 192, 175, 0.4);
+}
+
+.contactLink {
+  color: rgba(199, 192, 175, 0.7);
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  transition: color 0.2s ease;
+}
+
+.contactLink:hover { color: #a88753; }
+
+/* ── Brand watermark ────────────────────────────────────── */
+.brand {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: rgba(245, 243, 239, 0.15);
+  z-index: 1;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aperture { animation: none; }
+}
