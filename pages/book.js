@@ -206,7 +206,7 @@ export default function Book() {
                                   <span className={styles.pkgPriceSub}>$50 deposit · ${pkg.price - 50} at session</span>
                                 </span>
                                 <a
-                                  href={s.cal}
+                                  href={`${s.cal}?notes=${encodeURIComponent(`Package: ${s.name} · ${pkg.duration} · $${pkg.price} · ${pkg.images}`)}`}
                                   target="_blank"
                                   rel="noreferrer"
                                   className={styles.pkgBtn}
