@@ -137,52 +137,212 @@
   padding: 0 2rem 6rem;
 }
 
-/* ── Session cards (book page) ────────────────────────── */
-.sessionGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-  margin-bottom: 3rem;
-}
-
-.sessionCard {
+/* ── Session list (book page) ─────────────────────────── */
+.sessionList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
   border: 1px solid var(--stroke);
-  border-radius: 18px;
-  padding: 1.6rem 1.4rem;
-  background: linear-gradient(160deg, rgba(28,42,39,0.35), rgba(7,13,11,0.7));
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.sessionItem {
+  border-bottom: 1px solid var(--stroke);
+}
+
+.sessionItem:last-child {
+  border-bottom: none;
+}
+
+.sessionHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem 1.6rem;
+  background: transparent;
+  border: none;
   cursor: pointer;
+  text-align: left;
   text-decoration: none;
-  display: block;
-  transition: border-color 0.25s ease, background 0.25s ease, transform 0.3s var(--ease);
+  transition: background 0.2s ease;
+  color: var(--text);
+  font-family: "Manrope", "Segoe UI", sans-serif;
 }
 
-.sessionCard:hover {
-  border-color: rgba(168, 135, 83, 0.45);
-  background: linear-gradient(160deg, rgba(28,42,39,0.55), rgba(7,13,11,0.8));
-  transform: translateY(-3px);
+.sessionHeader:hover {
+  background: rgba(28, 42, 39, 0.35);
 }
 
-.sessionIcon {
-  font-size: 1.4rem;
-  margin-bottom: 0.9rem;
-  display: block;
-  filter: grayscale(1) brightness(1.4);
+.sessionHeaderOpen {
+  background: rgba(28, 42, 39, 0.45);
+}
+
+.sessionMeta {
+  flex: 1;
+  min-width: 0;
 }
 
 .sessionName {
-  margin: 0 0 0.5rem;
+  display: block;
   font-family: "Bodoni Moda", "Times New Roman", serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.05em;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
   color: var(--text);
+  margin-bottom: 0.25rem;
 }
 
 .sessionDesc {
   margin: 0;
-  font-size: 0.78rem;
+  font-size: 0.77rem;
   color: var(--muted);
-  line-height: 1.7;
-  letter-spacing: 0.02em;
+  line-height: 1.65;
+}
+
+.sessionFrom {
+  font-size: 0.78rem;
+  color: rgba(168, 135, 83, 0.8);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.sessionFree {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(168, 135, 83, 0.8);
+  flex-shrink: 0;
+}
+
+.sessionArrow {
+  flex-shrink: 0;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.sessionHeader:hover .sessionArrow {
+  color: rgba(168, 135, 83, 0.8);
+}
+
+.sessionChevron {
+  flex-shrink: 0;
+  color: var(--muted);
+  transition: transform 0.3s ease, color 0.2s ease;
+}
+
+.sessionChevronOpen {
+  transform: rotate(180deg);
+  color: rgba(168, 135, 83, 0.8);
+}
+
+/* ── Package panel (expanded) ─────────────────────────── */
+.pkgPanel {
+  overflow: hidden;
+  border-top: 1px solid var(--stroke);
+}
+
+.pkgTable {
+  padding: 0 1.6rem 0;
+}
+
+.pkgRow {
+  display: grid;
+  grid-template-columns: 1.6fr 1.4fr 1.2fr auto;
+  align-items: center;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(245, 243, 239, 0.04);
+  gap: 0.75rem;
+}
+
+.pkgRow:last-child {
+  border-bottom: none;
+}
+
+.pkgRowHead {
+  font-size: 0.63rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(168, 135, 83, 0.55);
+  padding-top: 1rem;
+}
+
+.pkgDuration {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.pkgLabel {
+  font-size: 0.7rem;
+  color: rgba(245, 243, 239, 0.35);
+  font-weight: 400;
+}
+
+.pkgImages {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.pkgPrice {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.pkgPriceSub {
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: rgba(168, 135, 83, 0.65);
+  white-space: nowrap;
+}
+
+.pkgBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(168, 135, 83, 0.9);
+  border: 1px solid rgba(168, 135, 83, 0.3);
+  border-radius: 3px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.pkgBtn:hover {
+  background: rgba(168, 135, 83, 0.12);
+  border-color: rgba(168, 135, 83, 0.6);
+}
+
+.pkgFooter {
+  padding: 0.85rem 1.6rem 1.2rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  border-top: 1px solid rgba(245, 243, 239, 0.04);
+}
+
+.pkgCalLink {
+  color: rgba(168, 135, 83, 0.8);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.pkgCalLink:hover {
+  color: rgba(168, 135, 83, 1);
 }
 
 /* ── CTA block ────────────────────────────────────────── */

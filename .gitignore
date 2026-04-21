@@ -20,7 +20,9 @@ skills-lock.json
 # crm-script.gs
 prices.md
 stripe-setup.js
+stripe-update-redirect.js
 stripe-links.json
+nextsteps.md
 
 # OS
 .DS_Store
