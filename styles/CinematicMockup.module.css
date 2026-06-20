@@ -97,6 +97,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1.5rem;
 }
 
 .heroQuote {
@@ -113,10 +114,238 @@
   text-shadow: 0 2px 32px rgba(0, 0, 0, 0.6);
 }
 
+/* ── Hero tagline + CTAs ───────────────────────────────────────── */
+.heroTagline {
+  margin: 0;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: clamp(0.78rem, 1.4vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: center;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.7);
+}
+
+.heroCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: center;
+}
+
+/* ── Buttons ───────────────────────────────────────────────────── */
+.btnPrimary,
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.9rem;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background var(--motion-hover) var(--motion-ease),
+    color var(--motion-hover) var(--motion-ease),
+    border-color var(--motion-hover) var(--motion-ease),
+    transform var(--motion-hover) var(--motion-ease);
+}
+
+.btnPrimary {
+  background: var(--text-primary);
+  color: #0a120f;
+  border: 1px solid var(--text-primary);
+}
+
+.btnPrimary:hover {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: #0a120f;
+  transform: translateY(-2px);
+}
+
+.btnGhost {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--stroke-soft);
+}
+
+.btnGhost:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  transform: translateY(-2px);
+}
+
+/* ── Content sections below the hero ───────────────────────────── */
+.section {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-6) var(--space-4);
+}
+
+.sectionInner {
+  max-width: var(--section-width);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: block;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 0.9rem;
+}
+
+.sectionTitle {
+  margin: 0 0 var(--space-5);
+  font-family: "Bodoni Moda", "Times New Roman", serif;
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: var(--text-primary);
+}
+
+/* What I shoot — tiles */
+.shootGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--space-3);
+}
+
+.shootTile {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 280px;
+  padding: var(--space-3);
+  border-radius: 4px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  text-decoration: none;
+  border: 1px solid var(--stroke-soft);
+  transition: transform var(--motion-hover) var(--motion-ease);
+}
+
+.shootTile:hover {
+  transform: translateY(-4px);
+}
+
+.shootTileShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(7, 13, 11, 0.88) 0%,
+    rgba(7, 13, 11, 0.28) 55%,
+    rgba(7, 13, 11, 0.12) 100%
+  );
+  transition: background var(--motion-hover) var(--motion-ease);
+}
+
+.shootTile:hover .shootTileShade {
+  background: linear-gradient(
+    0deg,
+    rgba(7, 13, 11, 0.82) 0%,
+    rgba(60, 27, 38, 0.34) 60%,
+    rgba(7, 13, 11, 0.1) 100%
+  );
+}
+
+.shootTileLabel {
+  position: relative;
+  z-index: 1;
+  font-family: "Bodoni Moda", "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+
+/* Featured work — image grid */
+.featuredGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2);
+}
+
+.featuredItem {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 3px;
+  border: 1px solid var(--stroke-soft);
+}
+
+.featuredImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--motion-ease);
+}
+
+.featuredItem:hover .featuredImg {
+  transform: scale(1.05);
+}
+
+.sectionAction {
+  margin-top: var(--space-5);
+  display: flex;
+  justify-content: center;
+}
+
+/* Closing CTA */
+.closing {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-6) var(--space-4) calc(var(--space-6) + 1rem);
+  border-top: 1px solid var(--stroke-soft);
+}
+
+.closingInner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.closingTitle {
+  margin: 0 0 var(--space-3);
+  font-family: "Bodoni Moda", "Times New Roman", serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.18;
+  color: var(--text-primary);
+}
+
+.closingText {
+  margin: 0 0 var(--space-4);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.closing .heroCtas {
+  margin-top: var(--space-2);
+}
+
+@media (max-width: 900px) {
+  .featuredGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 640px) {
   .heroContent {
     padding: 0 1.2rem 3.5rem;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .heroQuote {
@@ -124,6 +353,21 @@
     max-width: 28ch;
   }
 
+  .section {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .featuredGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .shootGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .shootTile {
+    min-height: 200px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
