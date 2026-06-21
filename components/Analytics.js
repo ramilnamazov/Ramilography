@@ -7,7 +7,7 @@ import { useEffect } from "react";
 // this component renders nothing and no tracking runs.
 //   NEXT_PUBLIC_GA_ID        e.g. "G-XXXXXXXXXX"  (Google Analytics 4)
 //   NEXT_PUBLIC_FB_PIXEL_ID  e.g. "1234567890"    (Meta / Facebook Pixel)
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-1YVMF8B92E";
 const FB_PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID;
 
 export default function Analytics() {
