@@ -6,13 +6,13 @@ export default function Document() {
       <Head>
         {/* Google tag (gtag.js) — placed in <head> so it's in the raw HTML
             (required for Google's tag detection / "Test connection"). */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1YVMF8B92E" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-T4S77BWNPQ" />
         <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-1YVMF8B92E');`,
+gtag('config', 'G-T4S77BWNPQ');`,
           }}
         />
         {/* Meta Pixel */}
