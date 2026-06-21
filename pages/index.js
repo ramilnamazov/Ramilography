@@ -117,6 +117,13 @@ export default function Home({ heroImages, services }) {
             "sameAs": ["https://instagram.com/ramilography", "https://cal.com/ramilography"],
             "serviceType": ["Portrait Photography", "Couples Photography", "Family Photography", "Event Photography", "Sports Photography"],
             "areaServed": ["New Jersey, USA", "New York City, USA"],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Newark",
+              "addressRegion": "NJ",
+              "addressCountry": "US",
+            },
+            "geo": { "@type": "GeoCoordinates", "latitude": 40.7357, "longitude": -74.1724 },
             "priceRange": "$$",
             "founder": { "@type": "Person", "name": "Ramil Namazov" },
           })}}
@@ -167,7 +174,7 @@ export default function Home({ heroImages, services }) {
                   {services.map((s) => (
                     <li key={s.id}>
                       <Link
-                        href="/portfolio"
+                        href={`/${s.id}`}
                         className={`${styles.indexItem} ${activeService === s.id ? styles.indexItemActive : ""}`}
                         onMouseEnter={() => setActiveService(s.id)}
                         onFocus={() => setActiveService(s.id)}

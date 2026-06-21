@@ -208,7 +208,7 @@ export default function Portfolio({ categories, photos }) {
                   >
                     <img
                       src={photo.src}
-                      alt={`${photo.label} — photo ${i + 1}`}
+                      alt={`${photo.label} photography in New Jersey by Ramilography — ${i + 1}`}
                       className={styles.bentoImg}
                       loading="lazy"
                       decoding="async"
@@ -293,7 +293,7 @@ export default function Portfolio({ categories, photos }) {
                     <motion.img
                       key={currentPhoto.src}
                       src={currentPhoto.src}
-                      alt={`${currentPhoto.label} — photo ${lightboxIdx + 1}`}
+                      alt={`${currentPhoto.label} photography in New Jersey by Ramilography — ${lightboxIdx + 1}`}
                       className={styles.lbImg}
                       initial={{ opacity: 0, scale: 1.02 }}
                       animate={{ opacity: 1, scale: 1 }}
