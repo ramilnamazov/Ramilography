@@ -13,7 +13,11 @@
 
 - Deposit: **$50 non-refundable** to reserve.
 - Balance due at session.
-- Location: **New Jersey**. Contact: **Instagram @ramilography**.
+- Location: **Newark, New Jersey** (travel-fee table on `/pricing`).
+- Booking: **Cal.com** scheduling + **Stripe** deposit checkout per package.
+- Contact: **email, phone, and Instagram** (@ramilography).
+- The live site actually shows **full duration→images→price tables** per
+  session (1–4 hrs), not just the "from $X" entry points listed above.
 
 ## ⚠️ Gaps I noticed (these matter for the system)
 
@@ -32,8 +36,10 @@
    usually price differently (per-image, half-day/full-day, or monthly content
    retainers) — not a flat "from $X." → We'll design these properly.
 
-4. **Contact runs only through Instagram DMs.** That's slow and leaky for leads.
-   → Add a real inquiry form + fast email reply (covered in website-audit.md).
+4. ~~**Contact runs only through Instagram DMs.**~~ **Correction (2026-06-21):**
+   this was wrong — the site has email, phone, Instagram, Cal.com booking, and
+   Stripe deposits. Leads are well covered. (A lightweight inquiry form is still
+   a *nice-to-have* for visitors not ready to book — tracked in website-audit.md.)
 
 ## Proposed additions (draft — for your approval later)
 - **Branding / Content** — half-day & full-day rates, or a monthly content

@@ -8,9 +8,10 @@ section into the new chat so it can pick up with full context._
 
 ## Who & what
 - **Client:** Ramil (ramil.namazov@gmail.com), photography side hustle.
-- **Website:** ramilography.com (Next.js-style site on Git + Vercel).
-  - Vercel preview seen: ramilography-svqx2v7ssv-9828s-projects.vercel.app
-  - Website repo: `ramilnamazov/ramilography` (NOT yet connected to a session).
+- **Website:** ramilography.com (Next.js app on Git + Vercel).
+  - Website repo: `ramilnamazov/Ramilography` — **now connected** to the working
+    session. `main` → production (ramilography.com); feature branches → previews.
+  - Active work branch: `claude/ramilography-marketing-rg3c2u`.
 - **Goal:** Build a full marketing + ops system so one person + an AI agency can
   run ads, website, content, automated posting, and lead follow-up.
 - **Role split:** Ramil = photographer + approver. AI = strategy, production, dev, ops.
@@ -33,15 +34,34 @@ section into the new chat so it can pick up with full context._
 - **Pricing is variable** by hours booked and number of edited photos; "from $X"
   is the entry point.
 
-## Website audit (key findings)
-Strong brand + clean nav + visible "Book a Session" CTA. But losing bookings:
-1. Can't tell WHAT he shoots in 5 seconds (no service clarity).
-2. No location stated anywhere → bad for "NJ/NYC photographer" local SEO.
-3. No testimonials/reviews → no trust signal.
-4. No package inclusions (duration, # edited photos, turnaround).
-5. Contact only via Instagram DM → slow/leaky; needs a real inquiry form + auto-reply.
-6. No analytics/Meta Pixel detected → future ads would be blind.
-7. Missing service pages for branding/product/food and real estate (his money-makers).
+## Website audit (CORRECTED 2026-06-21 after reading the code)
+The first audit was an outside guess and was wrong on several points. Reality:
+the site already has Cal.com booking, Stripe deposits, full pricing tables,
+package inclusions (duration + # images), location (Newark NJ + schema), schema
+markup, OG images, robots + sitemap. See `website-audit.md` for the full rewrite.
+
+**Real gaps that remained:**
+1. ✅ Homepage was nearly empty (hero image + quote only) — **REBUILT** (see below).
+2. ✅ No analytics/Meta Pixel — **ADDED** env-driven GA4 + Pixel scaffold (see below).
+3. ⬜ No testimonials/reviews → no trust signal (needs content from Ramil).
+4. ⬜ No `/about` page (needs a photo + bio).
+5. ⬜ Branding/product/food + real-estate service pages don't exist and have no
+   photos — strategic decision + assets needed before building.
+
+## Work completed (2026-06-21)
+- **Homepage rebuilt** (`pages/index.js` + `styles/CinematicMockup.module.css`):
+  kept the cinematic animated hero, added a NJ/NYC positioning line + a primary
+  "Book a Session" CTA in the hero, a "What I Shoot" service-tile row
+  (auto-generated from `public/images/*` folders), a featured-work strip, and a
+  closing CTA. Home title/description/schema now include New Jersey & NYC.
+  Footer now renders on the homepage.
+- **Analytics scaffold** (`components/Analytics.js`, wired in `pages/_app.js`):
+  GA4 + Meta Pixel driven by env vars `NEXT_PUBLIC_GA_ID` /
+  `NEXT_PUBLIC_FB_PIXEL_ID`, with SPA route-change pageview tracking. No-ops
+  (renders nothing) until the IDs are set, so it was safe to ship immediately.
+- Status: committed + pushed to `claude/ramilography-marketing-rg3c2u`.
+  **Not yet merged to `main`**, so not live on ramilography.com yet — awaiting
+  Ramil's review of the Vercel preview.
 
 ## Recommended site structure
 `/` (brand hero + niche tiles + featured work + proof + CTA), `/portraits`,
@@ -66,18 +86,19 @@ Each service page: own headline, gallery, "who it's for," "from $X," inquiry CTA
 - `roadmap.md` — phased plan
 
 ## OPEN QUESTIONS / still needed from Ramil
-1. **Add-on rate sheet numbers:** extra hour = $?, extra ~10 edited photos = $?,
-   # edited photos in a base session = ?
-2. **Approve drafting Branding/Content and Real Estate packages?** (his two
-   missing money-makers).
-3. **Photos** sorted by niche (5–8 each) for service-page galleries.
-4. **Testimonials/reviews** (screenshots fine).
-5. **Google Business Profile** — add AI as Manager (highest free ROI; not yet done).
-6. **Fill in the brand brief** (pricing, about-me, ideal client).
-7. **Connect the website repo** to a session so fixes ship as PRs (Vercel auto-deploys).
+1. **Review the homepage preview + decide to merge to `main`** (go live).
+2. **Tracking IDs:** GA4 Measurement ID (`G-XXXX`) and/or Meta Pixel ID — to set
+   as Vercel env vars and turn analytics on.
+3. **Testimonials/reviews** (screenshots fine) for a social-proof section.
+4. **About page** content: a photo + a few lines of bio.
+5. **Branding/Real-estate niches:** approve building those service pages, and
+   provide sample photos (5–8 each) — no assets exist yet.
+6. **Google Business Profile** — add AI as Manager (highest free ROI; not yet done).
+7. **Fill in the brand brief** (`00-intake-brand-brief.md` — still mostly blank).
 
-## Immediate next actions once in the correct repo
-- Move/recreate these `marketing/` files into the new repo.
-- Start Phase 1 website fixes as PRs: add location + service pages + package
-  inclusions + inquiry form + GA4/Pixel.
+## Immediate next actions
+- Get Ramil to preview the rebuilt homepage, then merge branch → `main` to go live.
+- Once tracking IDs arrive: set `NEXT_PUBLIC_GA_ID` / `NEXT_PUBLIC_FB_PIXEL_ID`
+  in Vercel → analytics live, no code change.
+- Then: testimonials section, `/about` page, optional tile deep-links.
 - Optimize Google Business Profile in parallel (free, high impact).
