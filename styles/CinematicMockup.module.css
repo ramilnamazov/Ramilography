@@ -213,61 +213,91 @@
   color: var(--text-primary);
 }
 
-/* What I shoot — tiles */
-.shootGrid {
+/* What I shoot — editorial index */
+.indexLayout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: var(--space-3);
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--space-5);
+  align-items: center;
 }
 
-.shootTile {
-  position: relative;
+.indexList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--stroke-soft);
+}
+
+.indexItem {
   display: flex;
-  align-items: flex-end;
-  min-height: 280px;
-  padding: var(--space-3);
-  border-radius: 4px;
-  overflow: hidden;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 1.15rem 0.25rem;
+  border-top: 1px solid var(--stroke-soft);
+  text-decoration: none;
+  color: var(--text-muted);
+  transition: color var(--motion-hover) var(--motion-ease),
+    padding-left var(--motion-hover) var(--motion-ease);
+}
+
+.indexName {
+  flex: 1;
+  font-family: "Bodoni Moda", "Times New Roman", serif;
+  font-size: clamp(1.7rem, 3.6vw, 3rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+.indexArrow {
+  display: inline-flex;
+  color: var(--accent-gold);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity var(--motion-hover) var(--motion-ease),
+    transform var(--motion-hover) var(--motion-ease);
+}
+
+.indexItem:hover,
+.indexItem:focus-visible,
+.indexItemActive {
+  color: var(--text-primary);
+  padding-left: 0.9rem;
+}
+
+.indexItem:hover .indexArrow,
+.indexItem:focus-visible .indexArrow,
+.indexItemActive .indexArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Small thumbnail — only shown on mobile (no hover there) */
+.indexThumb {
+  display: none;
+  flex-shrink: 0;
+  width: 54px;
+  height: 66px;
+  border-radius: 3px;
   background-size: cover;
   background-position: center;
-  text-decoration: none;
   border: 1px solid var(--stroke-soft);
-  transition: transform var(--motion-hover) var(--motion-ease);
 }
 
-.shootTile:hover {
-  transform: translateY(-4px);
+/* Preview frame — reveals the pointed-at category (desktop only) */
+.indexPreview {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--stroke-soft);
 }
 
-.shootTileShade {
+.indexPreviewImg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    0deg,
-    rgba(7, 13, 11, 0.88) 0%,
-    rgba(7, 13, 11, 0.28) 55%,
-    rgba(7, 13, 11, 0.12) 100%
-  );
-  transition: background var(--motion-hover) var(--motion-ease);
-}
-
-.shootTile:hover .shootTileShade {
-  background: linear-gradient(
-    0deg,
-    rgba(7, 13, 11, 0.82) 0%,
-    rgba(60, 27, 38, 0.34) 60%,
-    rgba(7, 13, 11, 0.1) 100%
-  );
-}
-
-.shootTileLabel {
-  position: relative;
-  z-index: 1;
-  font-family: "Bodoni Moda", "Times New Roman", serif;
-  font-size: 1.35rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--text-primary);
+  background-size: cover;
+  background-position: center;
 }
 
 /* Featured work — image grid */
@@ -361,12 +391,34 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .shootGrid {
-    grid-template-columns: repeat(2, 1fr);
+  /* Editorial index → single column with a thumbnail per row */
+  .indexLayout {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
-  .shootTile {
-    min-height: 200px;
+  .indexPreview {
+    display: none;
+  }
+
+  .indexThumb {
+    display: block;
+  }
+
+  .indexName {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  /* On touch, keep the arrow always visible so rows read as tappable */
+  .indexArrow {
+    opacity: 1;
+    transform: none;
+  }
+
+  .indexItem:hover,
+  .indexItem:focus-visible,
+  .indexItemActive {
+    padding-left: 0.25rem;
   }
 }
 

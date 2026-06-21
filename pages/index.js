@@ -3,7 +3,7 @@ import path from "path";
 import { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import styles from "../styles/CinematicMockup.module.css";
 import Navbar from "../components/Navbar";
 
@@ -91,6 +91,10 @@ export async function getStaticProps() {
 export default function Home({ heroImages, services, featured }) {
   const [heroImage, setHeroImage] = useState(heroImages[0] ?? null);
   const [quote, setQuote] = useState(QUOTES[0]);
+  const [activeService, setActiveService] = useState(services[0]?.id ?? null);
+
+  const activeCover =
+    services.find((s) => s.id === activeService)?.cover ?? services[0]?.cover;
 
   useEffect(() => {
     const imgPick = heroImages.length > 1
@@ -168,32 +172,53 @@ export default function Home({ heroImages, services, featured }) {
           </motion.div>
         </section>
 
-        {/* What I shoot */}
+        {/* What I shoot — editorial index */}
         {services.length > 0 && (
           <section className={styles.section}>
             <div className={styles.sectionInner}>
               <span className={styles.eyebrow}>What I Shoot</span>
               <h2 className={styles.sectionTitle}>One photographer. Many stories.</h2>
-              <div className={styles.shootGrid}>
-                {services.map((s, i) => (
-                  <motion.div
-                    key={s.id}
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-60px" }}
-                    transition={{ duration: 0.6, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    <Link
-                      href="/portfolio"
-                      className={styles.shootTile}
-                      style={{ backgroundImage: `url(${s.cover})` }}
-                      aria-label={`${s.label} photography`}
-                    >
-                      <span className={styles.shootTileShade} aria-hidden="true" />
-                      <span className={styles.shootTileLabel}>{s.label}</span>
-                    </Link>
-                  </motion.div>
-                ))}
+
+              <div className={styles.indexLayout}>
+                <ul className={styles.indexList}>
+                  {services.map((s) => (
+                    <li key={s.id}>
+                      <Link
+                        href="/portfolio"
+                        className={`${styles.indexItem} ${activeService === s.id ? styles.indexItemActive : ""}`}
+                        onMouseEnter={() => setActiveService(s.id)}
+                        onFocus={() => setActiveService(s.id)}
+                        aria-label={`${s.label} photography`}
+                      >
+                        <span
+                          className={styles.indexThumb}
+                          style={{ backgroundImage: `url(${s.cover})` }}
+                          aria-hidden="true"
+                        />
+                        <span className={styles.indexName}>{s.label}</span>
+                        <span className={styles.indexArrow} aria-hidden="true">
+                          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className={styles.indexPreview} aria-hidden="true">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeCover}
+                      className={styles.indexPreviewImg}
+                      style={{ backgroundImage: `url(${activeCover})` }}
+                      initial={{ opacity: 0, scale: 1.04 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    />
+                  </AnimatePresence>
+                </div>
               </div>
             </div>
           </section>
