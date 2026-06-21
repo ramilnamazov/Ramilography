@@ -66,29 +66,12 @@ export async function getStaticProps() {
     })
     .filter((s) => s.cover);
 
-  // Featured strip: round-robin across categories so it shows range, capped at 8.
-  const perCat = ordered.map((id) =>
-    listImages(path.join(imagesRoot, id)).map((f) => `/images/${id}/${f}`)
-  );
-  const featured = [];
-  for (let i = 0; featured.length < 8; i++) {
-    let added = false;
-    for (const list of perCat) {
-      if (list[i]) {
-        featured.push(list[i]);
-        added = true;
-        if (featured.length >= 8) break;
-      }
-    }
-    if (!added) break;
-  }
+  if (heroImages.length === 0 && services.length) heroImages = [services[0].cover];
 
-  if (heroImages.length === 0 && featured.length) heroImages = [featured[0]];
-
-  return { props: { heroImages, services, featured }, revalidate: 60 };
+  return { props: { heroImages, services }, revalidate: 60 };
 }
 
-export default function Home({ heroImages, services, featured }) {
+export default function Home({ heroImages, services }) {
   const [heroImage, setHeroImage] = useState(heroImages[0] ?? null);
   const [quote, setQuote] = useState(QUOTES[0]);
   const [activeService, setActiveService] = useState(services[0]?.id ?? null);
@@ -219,39 +202,6 @@ export default function Home({ heroImages, services, featured }) {
                     />
                   </AnimatePresence>
                 </div>
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Featured work */}
-        {featured.length > 0 && (
-          <section className={styles.section}>
-            <div className={styles.sectionInner}>
-              <span className={styles.eyebrow}>Selected Work</span>
-              <h2 className={styles.sectionTitle}>A glimpse of recent frames.</h2>
-              <div className={styles.featuredGrid}>
-                {featured.map((src, i) => (
-                  <motion.div
-                    key={src}
-                    className={styles.featuredItem}
-                    initial={{ opacity: 0, scale: 0.97 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.55, delay: Math.min(i * 0.05, 0.4), ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    <img
-                      src={src}
-                      alt={`Featured photograph ${i + 1}`}
-                      className={styles.featuredImg}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </motion.div>
-                ))}
-              </div>
-              <div className={styles.sectionAction}>
-                <Link href="/portfolio" className={styles.btnGhost}>See the full portfolio</Link>
               </div>
             </div>
           </section>
