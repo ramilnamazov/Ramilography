@@ -329,6 +329,93 @@
   background-position: center;
 }
 
+/* Testimonials */
+.reviewsScore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: calc(-1 * var(--space-3)) 0 var(--space-5);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: color var(--motion-hover) var(--motion-ease);
+}
+
+.reviewsScore:hover {
+  color: var(--text-primary);
+}
+
+.reviewsStars {
+  color: var(--accent-gold);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+}
+
+.reviewGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.reviewCard {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  border: 1px solid var(--stroke-soft);
+  border-radius: 6px;
+  background: linear-gradient(160deg, rgba(28, 42, 39, 0.34), rgba(7, 13, 11, 0.5));
+}
+
+.reviewStars {
+  color: var(--accent-gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+.reviewText {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.72;
+  color: var(--text-primary);
+}
+
+.reviewAuthor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: auto;
+  padding-top: var(--space-1);
+}
+
+.reviewName {
+  font-family: "Bodoni Moda", "Times New Roman", serif;
+  font-size: 1rem;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.reviewTag {
+  font-size: 0.64rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+.sectionAction {
+  margin-top: var(--space-5);
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .reviewGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* Closing CTA */
 .closing {
   position: relative;
@@ -376,6 +463,10 @@
 
   .section {
     padding: var(--space-5) var(--space-4);
+  }
+
+  .reviewGrid {
+    grid-template-columns: 1fr;
   }
 
   /* Editorial index → single column with a thumbnail per row */

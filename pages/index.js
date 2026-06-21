@@ -27,6 +27,41 @@ const QUOTES = [
   "Light remembered long after the moment fades.",
 ];
 
+// Curated from the 5.0★ Google reviews, balanced across niches. Lightly
+// trimmed for length; wording kept faithful to the originals.
+const TESTIMONIALS = [
+  {
+    name: "Zaid Hasan",
+    tag: "Family",
+    text: "Fantastic experience. Ramil was punctual, engaging, charismatic, skilled, knowledgeable, and patient. He did family portraits for us — we had family from over 90 years of age to newborns. He dealt with everything professionally and courteously. Would recommend and would book again.",
+  },
+  {
+    name: "Aleksei Pak",
+    tag: "Family",
+    text: "We had such a great experience working with Ramil! Super professional, showed up right on time, and knew all the best spots for awesome photos. Kind and patient — which we appreciated with a crazy toddler! The pictures were ready and uploaded within a week. Definitely recommend!",
+  },
+  {
+    name: "Vijetha G.",
+    tag: "Maternity",
+    text: "Ramil did an amazing job on my maternity shoot — just perfect, exactly how I wanted. Throughout the shoot he was very communicative and involved in the work, which showed in the pictures. Highly recommend him for any event.",
+  },
+  {
+    name: "Teresa Cano",
+    tag: "Sports",
+    text: "So easy to work with. He reached out the same day and came out to my son's game the same day! Priced great, and when we received the images they were amazing. My son was very happy. Definitely recommend.",
+  },
+  {
+    name: "Hello Expometro",
+    tag: "Events",
+    text: "Ramil is not only an excellent photographer and videographer but also a great person to work with. He covered our billboard art show event in Times Square and the mission was perfectly accomplished. We highly recommend Ramil.",
+  },
+  {
+    name: "D. L.",
+    tag: "Branding",
+    text: "We hired Ramil to do environmental portraits for our company. He was priced right, punctual, organized, and produced work that exceeded our expectations. Definitely a good vendor for media services that I would recommend.",
+  },
+];
+
 function formatLabel(str) {
   return str.replace(/[-_]+/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
@@ -126,6 +161,12 @@ export default function Home({ heroImages, services }) {
             "geo": { "@type": "GeoCoordinates", "latitude": 40.7357, "longitude": -74.1724 },
             "priceRange": "$$",
             "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "16" },
+            "review": TESTIMONIALS.map((t) => ({
+              "@type": "Review",
+              "author": { "@type": "Person", "name": t.name },
+              "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+              "reviewBody": t.text,
+            })),
             "founder": { "@type": "Person", "name": "Ramil Namazov" },
           })}}
         />
@@ -224,6 +265,55 @@ export default function Home({ heroImages, services }) {
             </div>
           </section>
         )}
+
+        {/* Testimonials */}
+        <section className={styles.section}>
+          <div className={styles.sectionInner}>
+            <span className={styles.eyebrow}>Kind Words</span>
+            <h2 className={styles.sectionTitle}>Loved by clients across NJ &amp; NYC.</h2>
+            <a
+              className={styles.reviewsScore}
+              href="https://www.google.com/maps?cid=11096672683401965628"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Rated 5.0 stars from 16 Google reviews"
+            >
+              <span className={styles.reviewsStars} aria-hidden="true">★★★★★</span>
+              5.0 · 16 Google reviews
+            </a>
+
+            <div className={styles.reviewGrid}>
+              {TESTIMONIALS.map((t, i) => (
+                <motion.figure
+                  key={t.name}
+                  className={styles.reviewCard}
+                  initial={{ opacity: 0, y: 22 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.55, delay: Math.min(i * 0.06, 0.4), ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <span className={styles.reviewStars} aria-hidden="true">★★★★★</span>
+                  <blockquote className={styles.reviewText}>{t.text}</blockquote>
+                  <figcaption className={styles.reviewAuthor}>
+                    <span className={styles.reviewName}>{t.name}</span>
+                    <span className={styles.reviewTag}>{t.tag}</span>
+                  </figcaption>
+                </motion.figure>
+              ))}
+            </div>
+
+            <div className={styles.sectionAction}>
+              <a
+                className={styles.btnGhost}
+                href="https://www.google.com/maps?cid=11096672683401965628"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Read all reviews on Google
+              </a>
+            </div>
+          </div>
+        </section>
 
         {/* Closing CTA */}
         <section className={styles.closing}>
