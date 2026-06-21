@@ -125,6 +125,7 @@ export default function Home({ heroImages, services }) {
             },
             "geo": { "@type": "GeoCoordinates", "latitude": 40.7357, "longitude": -74.1724 },
             "priceRange": "$$",
+            "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "16" },
             "founder": { "@type": "Person", "name": "Ramil Namazov" },
           })}}
         />
@@ -159,6 +160,16 @@ export default function Home({ heroImages, services }) {
               <Link href="/book" className={styles.btnPrimary}>Book a Session</Link>
               <Link href="/portfolio" className={styles.btnGhost}>View Portfolio</Link>
             </div>
+            <a
+              className={styles.heroRating}
+              href="https://www.google.com/maps?cid=11096672683401965628"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Rated 5.0 stars from 16 Google reviews"
+            >
+              <span className={styles.heroStars} aria-hidden="true">★★★★★</span>
+              <span className={styles.heroRatingText}>5.0 · 16 Google Reviews</span>
+            </a>
           </motion.div>
         </section>
 
