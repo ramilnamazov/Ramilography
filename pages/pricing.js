@@ -168,18 +168,12 @@ export default function Pricing() {
                       ${pkg.price}
                       <span className={styles.cellPriceSub}>$50 now · ${pkg.price - 50} at session</span>
                     </span>
-                    <a
-                      href={pkg.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={`${styles.bookBtn} ${pkg.url === "#" ? styles.bookBtnDisabled : ""}`}
-                      aria-disabled={pkg.url === "#"}
-                    >
-                      Reserve — $50 Deposit
+                    <Link href="/book" className={styles.bookBtn}>
+                      Book This Session
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                         <path d="M7 17L17 7M7 7h10v10"/>
                       </svg>
-                    </a>
+                    </Link>
                   </motion.div>
                 ))}
               </div>

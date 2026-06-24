@@ -191,8 +191,7 @@ export default function Book() {
                               <span>Duration</span>
                               <span>Images</span>
                               <span>Total</span>
-                              <span>Step 1</span>
-                              <span>Step 2</span>
+                              <span>Book</span>
                             </div>
                             {s.packages.map((pkg) => (
                               <div key={pkg.duration} className={styles.pkgRow}>
@@ -209,17 +208,9 @@ export default function Book() {
                                   href={`${s.cal}?notes=${encodeURIComponent(`Package: ${s.name} · ${pkg.duration} · $${pkg.price} · ${pkg.images}`)}`}
                                   target="_blank"
                                   rel="noreferrer"
-                                  className={styles.pkgBtn}
-                                >
-                                  Pick a date
-                                </a>
-                                <a
-                                  href={pkg.url}
-                                  target="_blank"
-                                  rel="noreferrer"
                                   className={`${styles.pkgBtn} ${styles.pkgBtnPay}`}
                                 >
-                                  Pay $50 deposit
+                                  Book — pay $50 deposit
                                 </a>
                               </div>
                             ))}
