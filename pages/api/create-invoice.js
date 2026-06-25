@@ -8,6 +8,7 @@ import Stripe from "stripe";
 // Until both env vars are set, this endpoint is inert.
 
 const NJ_TAX_RATE = 0.06625;
+const CARD_FEE_RATE = 0.03; // ~covers Stripe's 2.9% + 30¢ when passed to the client
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -24,7 +25,7 @@ export default async function handler(req, res) {
     return res.status(503).json({ error: "Not configured: add INVOICE_ADMIN_TOKEN in Vercel → Environment Variables." });
   }
 
-  const { token, email, name, description, amount, addTax } = req.body || {};
+  const { token, email, name, description, amount, addTax, addFee } = req.body || {};
 
   if (token !== adminToken) {
     return res.status(401).json({ error: "Wrong password." });
@@ -54,12 +55,23 @@ export default async function handler(req, res) {
     });
 
     // Optional NJ sales tax line.
-    if (addTax) {
+    const taxCents = addTax ? Math.round(amountCents * NJ_TAX_RATE) : 0;
+    if (taxCents > 0) {
       await stripe.invoiceItems.create({
         customer: customer.id,
-        amount: Math.round(amountCents * NJ_TAX_RATE),
+        amount: taxCents,
         currency: "usd",
         description: "NJ Sales Tax (6.625%)",
+      });
+    }
+
+    // Optional card-processing fee passed to the client (covers Stripe's cut).
+    if (addFee) {
+      await stripe.invoiceItems.create({
+        customer: customer.id,
+        amount: Math.round((amountCents + taxCents) * CARD_FEE_RATE),
+        currency: "usd",
+        description: "Card processing fee (3%)",
       });
     }
 

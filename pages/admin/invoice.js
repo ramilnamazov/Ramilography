@@ -25,6 +25,7 @@ export default function InvoiceTool() {
   const [amount, setAmount] = useState("150");
   const [description, setDescription] = useState("");
   const [addTax, setAddTax] = useState(false);
+  const [addFee, setAddFee] = useState(false);
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
@@ -47,7 +48,7 @@ export default function InvoiceTool() {
         body: JSON.stringify({
           token, email, name,
           description: description.trim() || autoDesc,
-          amount, addTax,
+          amount, addTax, addFee,
         }),
       });
       const data = await r.json();
@@ -114,6 +115,10 @@ export default function InvoiceTool() {
             <label style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginTop: "1rem", fontSize: "0.85rem", color: C.muted }}>
               <input type="checkbox" checked={addTax} onChange={(e) => setAddTax(e.target.checked)} />
               Add NJ sales tax (6.625%)
+            </label>
+            <label style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginTop: "0.6rem", fontSize: "0.85rem", color: C.muted }}>
+              <input type="checkbox" checked={addFee} onChange={(e) => setAddFee(e.target.checked)} />
+              Add card processing fee (3%)
             </label>
 
             <button type="submit" disabled={busy} style={{ width: "100%", marginTop: "1.5rem", padding: "0.85rem", background: busy ? C.stroke : C.gold, color: "#0a120f", border: "none", borderRadius: 999, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", fontSize: "0.8rem", cursor: busy ? "default" : "pointer" }}>
