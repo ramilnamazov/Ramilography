@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { useState, useEffect, useCallback, useRef } from "react";
 import Head from "next/head";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../components/Navbar";
 import styles from "../styles/Portfolio.module.css";
@@ -206,12 +207,12 @@ export default function Portfolio({ categories, photos }) {
                     aria-label={`View ${photo.label} photo ${i + 1}`}
                     onKeyDown={(e) => e.key === "Enter" && openLightbox(i)}
                   >
-                    <img
+                    <Image
                       src={photo.src}
                       alt={`${photo.label} photography in New Jersey by Ramilography — ${i + 1}`}
+                      fill
+                      sizes="(max-width: 640px) 50vw, 340px"
                       className={styles.bentoImg}
-                      loading="lazy"
-                      decoding="async"
                     />
                     <div className={styles.itemOverlay} aria-hidden="true">
                       <span className={styles.itemLabel}>{photo.label}</span>
