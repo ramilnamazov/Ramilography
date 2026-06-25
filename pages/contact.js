@@ -8,7 +8,7 @@ import Navbar from "../components/Navbar";
 
 // Free Web3Forms access key (https://web3forms.com). It is a PUBLIC key — safe
 // to live in client code. Until it's set, the form falls back to email.
-const WEB3FORMS_ACCESS_KEY = "";
+const WEB3FORMS_ACCESS_KEY = "f39e0907-ff07-492e-be23-241dcb1f9971";
 
 // Studio origin — ZIP 07104, Newark NJ.
 const ORIGIN = { lat: 40.7634, lon: -74.1722 };
